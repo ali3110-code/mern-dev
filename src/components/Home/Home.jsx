@@ -7,7 +7,7 @@ const Home = () => {
       <h1>Welcome to Blogify!</h1>
 
       <Link to="/signup">
-        <button>Register</button>
+        <button>Get Started</button>
       </Link>
 
       <span>or</span>

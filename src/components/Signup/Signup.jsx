@@ -1,22 +1,49 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Signup.css";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
 
-    console.log({
-      name,
-      email,
-      password,
-      confirmPassword,
+    const response = await fetch("http://localhost:5000/api/auth/signup", {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
     });
+
+    const data = await response.json();
+    if (response.ok) {
+      setName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      navigate("/Login");
+
+      alert("Success:", data);
+    } else {
+      console.log("Error:", data);
+    }
   };
 
   return (
