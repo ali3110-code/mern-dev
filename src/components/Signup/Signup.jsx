@@ -40,9 +40,9 @@ const Signup = () => {
 
       navigate("/Login");
 
-      alert("Success:", data);
+      alert(`Success! , ${data.message}`);
     } else {
-      console.log("Error:", data);
+      alert(`Failed!, ${data.message}`);
     }
   };
 

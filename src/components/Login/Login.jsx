@@ -15,6 +15,7 @@ const Login = () => {
       headers: {
         "content-type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({
         email,
         password,
@@ -27,9 +28,9 @@ const Login = () => {
 
       navigate("/Dashboard");
 
-      alert("Success:", data);
+      alert(`Success:", ${data.message}`);
     } else {
-      console.log("Error:", data);
+      alert(`Failed!, ${data.message}`);
     }
   };
   return (
