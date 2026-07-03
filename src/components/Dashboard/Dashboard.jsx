@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useNavigate } from "react-router-dom";
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -16,8 +17,6 @@ const Dashboard = () => {
       if (response.ok) {
         alert(data.message);
         navigate("/");
-      } else {
-        alert(data.message);
       }
     } catch (error) {
       alert("Something went wrong!");
@@ -25,10 +24,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h1>Welcome to your personalised dashboard!</h1>
+    <div className="dashboard">
+      <h1>This is your personalized dashboard </h1>
+      <p>You have successfully logged in.</p>
 
-      <button onClick={handleLogout}>Logout</button>
+      <button className="logout-btn" onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };

@@ -1,0 +1,36 @@
+.dashboard {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.dashboard h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.dashboard p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.logout-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: tomato;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
